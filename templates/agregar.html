@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data" class="m-5 border rounded bg-white">
+    {% csrf_token %}
+    <div class="form-group m-3 bg-white font-weight-normal">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Contacto</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <br>
+                <div class="form-group bg-white font-weight-normal">
+                    {{ contacto_form|crispy }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+        
+    <div class="bg-light text-right text-bottom border-top">
+        <button type="submit" class="btn btn-primary mb-3 mt-3">Agregar Contacto</button>
+        <a href="{% url 'inicio' %}" class="btn btn-secondary mb-3 mr-3 mt-3">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}
+
+
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <br>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.calle|as_crispy_field }}
+    </div>
+    
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.numero_exterior|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.numero_interior|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.colonia|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.municipio|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.estado|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.referencias|as_crispy_field }}
+    </div>
+</div>
+
+<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="form-group bg-white font-weight-normal">
+        {{ contact_form.tipo|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.alias|as_crispy_field }}
+    </div>
+    <div class="form-group bg-white font-weight-normal">
+        {{ contacto_form.numero|as_crispy_field }}
+    </div>
+</div>
