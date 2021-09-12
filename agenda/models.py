@@ -62,3 +62,6 @@ class Contacto(models.Model):
         verbose_name = "Contacto"
         verbose_name_plural = "Contactos"
     
+    def __str__(self):
+        return '%s %s' % (self.nombre, self.apellidos)
+    

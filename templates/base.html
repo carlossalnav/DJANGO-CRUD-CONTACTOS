@@ -15,10 +15,10 @@
         </thead>
         <tbody>
 
-        {% for contacto in contactos %}
+        {% for contacto in object_list %}
         <tr>
             <th scope="row">{{contacto.id}}</th>
-            <td class="d-none d-md-block"><img src={{contacto.fotografia.url}} class="rounded" height="40px" width="40px"></td>
+            <td class="d-none d-md-block"><img src={{contacto.fotografia.url}} class="rounded-circle" height="40px" width="40px"></td>
             <td>{{contacto.nombre}}</td>
             <td>{{contacto.apellidos}}</td>
             <td class="align-middle">

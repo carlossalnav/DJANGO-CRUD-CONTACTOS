@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data" class="m-5 border rounded bg-white">
+    {% csrf_token %}
+    
+    <div class="m-3">
+        <p>¿Estas seguro de eliminar el contacto <b>{{ object }}</b>? Esta acción es irreversible.</p>
+    </div>
+
+    <div class="bg-light text-right text-bottom border-top">
+        <button type="submit" class="btn btn-danger mb-3 mt-3">Eliminar Contacto</button>
+        <a href="{% url 'inicio' %}" class="btn btn-secondary mb-3 mr-3 mt-3">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}
